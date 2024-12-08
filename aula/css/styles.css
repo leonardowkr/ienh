@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.logo{
+    max-height: 50px;
+    width: auto;
+}
+.imgcarrosel{
+   height: 600px;
+   object-fit: cover;
+   object-position: center;
+}

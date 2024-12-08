@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+    #formulario{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        gap: 10px;
+        margin: auto;
+        background-color: #08088fe6;
+        color: rgba(255, 255, 255, 0.80);
+        padding: 20px;
+        width: fit-content;
+        border-radius: 12px;
+        padding: 60px 100px;
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.445);
+}
+
+input{
+    padding: 3px 40px;
+}
+body{
+    background-color: #25258F;
+}
+h1{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.80);
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+

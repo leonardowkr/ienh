@@ -1,0 +1,10 @@
+.logo{
+    max-height: 50px;
+    width: auto;
+}
+
+.imgcarrossel{
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
