@@ -14,5 +14,5 @@
     
     $inserir = "INSERT INTO funcionarios (idusuario, nome, salariohora, cargahorariamensalltrabalhada, horaextra50, horaextra100, bonificacao) values('$idusuario','$nome','$salariohora','$cargahorariamensalltrabalhada', '$horaextra50', '$horaextra100', '$bonificacao')"; // Inserimos os dados na tabela de produtos
     $conexao ->query($inserir);
-    echo "Funcionário(a) cadastrado com sucesso!";
-?>
+    header("Location: cadastro-funcionarios.php");
+    ?>

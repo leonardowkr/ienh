@@ -18,9 +18,7 @@ if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha
         if ($row_2['senha'] != $senha) { // verifica senha
             echo "Senha incorreta";
         } else {
-            //header("Location: login.php");
-            // recebemos o nome do produto
-            //$idusuario = 1;
+            
             $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' and senha = '$senha'";
             $sqlIdUsuario = "SELECT idusuario FROM usuarios WHERE usuario = '$usuario';";
 
@@ -38,7 +36,7 @@ if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha
                 // Agora, você pode acessar o idusuario da sessão
                 //echo "ID do usuário: " . $_SESSION['idusuario'];  // Exibindo o idusuario da sessão
             }
-            header("Location: cadastrar-funcionario.php");
+            header("Location: cadastro-funcionarios.php");
         }
     } else {
         //header("Location: index.php");
