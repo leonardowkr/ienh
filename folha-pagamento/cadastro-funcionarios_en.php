@@ -284,27 +284,27 @@ error_reporting(E_ERROR | E_PARSE);*/
 
 <body>
 
-<nav>
+  <nav>
     <a href="cadastro-funcionarios.php"><img class="imagem-idioma" src="img/brasil.png" alt=""></a>
     
     <a href="cadastro-funcionarios_en.php"><img class="imagem-idioma" src="img/estados-unidos.png" alt=""></a>
   </nav>
   <form action="cadastro.php" id="formulario" method="POST">
-    <h1>Folha de pagamento</h1>
+    <h1>Payroll (Brazil)</h1>
 
 
     <div class="column-group">
       <div class="column">
         <div class="form-group">
-          <label for="salario">Salário por hora</label>
+          <label for="salario">Wage</label>
           <input type="text" class="form-control" name="salariohora" id="salario" placeholder="R$ 0,00" required>
         </div>
         <div class="form-group">
-          <label for="nome">Nome Funcionário</label>
-          <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required>
+          <label for="nome">Employee Name</label>
+          <input type="text" class="form-control" name="nome" id="nome" placeholder="Name" required>
         </div>
         <div class="form-group">
-          <label for="cargaHoraria">Carga horária mensal</label>
+          <label for="cargaHoraria">Monthly Working Hours</label>
           <input type="text" class="form-control" name="cargahorariamensalltrabalhada"
             id="cargahorariamensalltrabalhada" placeholder="0 h" required>
         </div>
@@ -313,21 +313,21 @@ error_reporting(E_ERROR | E_PARSE);*/
 
       <div class="column">
         <div class="form-group">
-          <label for="horaextra50">Horas extras 50%</label>
+          <label for="horaextra50">Overtime work (50%)</label>
           <input type="text" class="form-control" name="horaextra50" id="horaextra50" placeholder="0 h" required>
         </div>
         <div class="form-group">
-          <label for="horaextra100">Horas extras 100%</label>
+          <label for="horaextra100">Overtime work (100%)</label>
           <input type="text" class="form-control" name="horaextra100" id="horaextra100" placeholder="0 h" required>
         </div>
         <div class="form-group">
-          <label for="bonificacao">Bonificação</label>
+          <label for="bonificacao">Bonus</label>
           <input type="text" class="form-control" name="bonificacao" id="bonificacao" placeholder="R$ 0,00" required>
         </div>
       </div>
     </div>
 
-    <button type="submit" name="submit" value="Enviar"> Enviar</button>
+    <button type="submit" name="submit" value="Enviar"> Submit</button>
 
   </form>
   <div class="column-group-2">
@@ -366,9 +366,9 @@ error_reporting(E_ERROR | E_PARSE);*/
 
       <div class="card">
         <p class="name text-align"><strong><?php print $funcionarios['nome']; ?></strong></p>
-        <p class="card-text">Salário: R$ <?php print number_format($salario, 2, ',', '.');
+        <p class="card-text">Salary: R$ <?php print number_format($salario, 2, ',', '.');
         ?> </p>
-        <p class="card-text">Horas Extras: R$ <?php print number_format($horasExtras, 2, ',', '.'); ?> </p>
+        <p class="card-text">Overtime: R$ <?php print number_format($horasExtras, 2, ',', '.'); ?> </p>
 
         <p class="card-text">FGTS: R$ <?php print number_format($fgts, 2, ',', '.'); ?></p>
 
@@ -376,15 +376,15 @@ error_reporting(E_ERROR | E_PARSE);*/
 
 
         <p class="card-text">INSS: R$ <?php print number_format($prevSocial, 2, ',', '.'); ?></p>
-        <p class="card-text">Férias (anual): R$ <?php print number_format($ferias, 2, ',', '.'); ?></p>
-        <p class="card-text">13° salário (anual): R$ <?php print number_format($decimoTerceiroSalario, 2, ',', '.'); ?>
+        <p class="card-text">Vacation (yearly): R$ <?php print number_format($ferias, 2, ',', '.'); ?></p>
+        <p class="card-text">13° salary (yearly): R$ <?php print number_format($decimoTerceiroSalario, 2, ',', '.'); ?>
         </p>
         <p class="card-text"><strong>Custo Total: R$ <?php print number_format($custoTotal, 2, ',', '.'); ?></strong>
         </p>
 
         <form method="POST" class="centralizado" action="remover-funcionario.php">
           <input type="hidden" name="id_funcionario" value="<?php echo $funcionarios['id']; ?>">
-          <button type="submit" id="remover" name="remover">Remover</button>
+          <button type="submit" id="remover" name="remover">Remove</button>
         </form>
       </div>
 
@@ -392,8 +392,8 @@ error_reporting(E_ERROR | E_PARSE);*/
     endwhile;
     ?>
   </div>
-  <p class="custo-total">Custo Total Folha: R$ <?php print number_format($custoTotal_global, 2, ',', '.'); ?></p>
-  <p id="creditos">Desenvolvido por Leonardo Wecker. Valores podem não estar corretos e/ou atualizados (2024).</p>
+  <p class="custo-total">Total payroll cost: R$ <?php print number_format($custoTotal_global, 2, '.', ','); ?></p>
+  <p id="creditos">Developed by Leonardo Wecker. Some values may not be correct or updated (2024).</p>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -401,3 +401,6 @@ error_reporting(E_ERROR | E_PARSE);*/
 </body>
 
 </html>
+
+
+
