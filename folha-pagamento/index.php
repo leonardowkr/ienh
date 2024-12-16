@@ -11,6 +11,17 @@
     <style>
         @charset "UTF-8";
 
+        nav {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 14px;
+      column-gap: 12px;
+      align-content: center;
+    }
+
+    .imagem-idioma {
+      width: 40px;
+    }
         #formulario {
             max-width: 600px;
             display: flex;
@@ -73,7 +84,7 @@
        
 
         body {
-            height: calc(100vh - 30px);
+            height: calc(100vh);
             background: linear-gradient(#0B2643,#161b33);
             //background-color: #0B2643
         }
@@ -92,7 +103,12 @@
 </head>
 
 <body>
+
+<nav>
+    <a href="index.php"><img class="imagem-idioma" src="img/brasil.png" alt=""></a>
     
+    <a href="index_en.php"><img class="imagem-idioma" src="img/estados-unidos.png" alt=""></a>
+  </nav>
     
     <form action="cadastroUsuario.php" method="POST" id="formulario">
         <h1>Folha de Pagamento de Funcionários</h1>
@@ -112,5 +128,6 @@
 
     
 </body>
+
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -117,21 +117,21 @@
     
     <a href="cadastro-funcionarios_en.php"><img class="imagem-idioma" src="img/estados-unidos.png" alt=""></a>
   </nav>
-    <form action="loginUsuario.php" method="POST" id="formulario">
-        <h1>Folha de Pagamento de Funcionários</h1>
+    <form action="loginUsuario_en.php" method="POST" id="formulario">
+        <h1>Payroll</h1>
         <h2>Login</h2>
         <div class="form-group">
-            <label for="usuario">Usuário</label>
-            <input type="text" name="usuario" id="usuario" placeholder="Insira o nome de usuário" required>
+            <label for="usuario">User</label>
+            <input type="text" name="usuario" id="usuario" placeholder="Your username" required>
         </div>
 
         <div class="form-group">
-            <label for="senha">Senha</label>
-            <input type="password" name="senha" id="senha" placeholder="Insira sua senha" required>
+            <label for="senha">Password</label>
+            <input type="password" name="senha" id="senha" placeholder="Your password" required>
         </div>
 
-        <button type="submit" name="submit" value="Enviar"> Enviar</button>
-        <a href="index.php">Criar nova conta</a>
+        <button type="submit" name="submit" value="Enviar"> Submit</button>
+        <a href="index_en.php">Create a new account</a>
     </form>
 </body>
 

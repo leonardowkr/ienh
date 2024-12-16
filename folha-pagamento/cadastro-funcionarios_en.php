@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -37,7 +37,7 @@ error_reporting(E_ERROR | E_PARSE);*/
     .imagem-idioma {
       width: 40px;
     }
-    
+
     #formulario {
       display: flex;
       flex-flow: row wrap;
@@ -107,7 +107,7 @@ error_reporting(E_ERROR | E_PARSE);*/
     .column-group-2 {
       display: flex;
       flex-direction: row;
-
+      flex-wrap: wrap;
       justify-content: center;
       column-gap: 20px;
       margin: 40px 0px;
@@ -136,7 +136,8 @@ error_reporting(E_ERROR | E_PARSE);*/
       margin: 15px;
       background-color: #0B2643;
       border-radius: 5px;
-
+      display: flex;
+      justify-content: space-between;
     }
 
     .name {
@@ -167,67 +168,16 @@ error_reporting(E_ERROR | E_PARSE);*/
       padding: 2px;
     }
 
-    /* The switch - the box around the slider */
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
+    .label {
+      font-weight: bold;
     }
 
-    /* Hide default HTML checkbox */
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
+    .value {
+      text-align: right;
     }
 
-    /* The slider */
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-
-    input:checked+.slider {
-      background-color: #ccc;
-    }
-
-    input:focus+.slider {
-      box-shadow: 0 0 1px white;
-    }
-
-    input:checked+.slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
-
-    /* Rounded sliders */
-    .slider.round {
-      border-radius: 34px;
-    }
-
-    .slider.round:before {
-      border-radius: 50%;
+    .alinha-texto {
+      margin: auto;
     }
 
     @media (max-width: 768px) {
@@ -258,7 +208,7 @@ error_reporting(E_ERROR | E_PARSE);*/
       }
 
       .card-text {
-        margin: 15px 0px;
+        margin: 12px 0px;
         min-width: 100%;
       }
 
@@ -268,9 +218,6 @@ error_reporting(E_ERROR | E_PARSE);*/
 
       .custo-total {
         font-size: 1em;
-      }
-
-      .custo-total {
         border-radius: 0px;
         box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.445);
       }
@@ -286,10 +233,10 @@ error_reporting(E_ERROR | E_PARSE);*/
 
   <nav>
     <a href="cadastro-funcionarios.php"><img class="imagem-idioma" src="img/brasil.png" alt=""></a>
-    
+
     <a href="cadastro-funcionarios_en.php"><img class="imagem-idioma" src="img/estados-unidos.png" alt=""></a>
   </nav>
-  <form action="cadastro.php" id="formulario" method="POST">
+  <form action="cadastro_en.php" id="formulario" method="POST">
     <h1>Payroll (Brazil)</h1>
 
 
@@ -347,8 +294,10 @@ error_reporting(E_ERROR | E_PARSE);*/
         $prevSocial = 0.09 * $salario;
       } else if ($salario <= 4000.03) {
         $prevSocial = 0.12 * $salario;
-      } else if ($salario >= 4000.04) {
+      } else if ($salario >= 4000.04 && $salario < 7507.49) {
         $prevSocial = 0.14 * $salario;
+      } else if ($salario > 7507.49) {
+        $prevSocial = 0.14 * 7507.49;
       }
 
       $fgts = 0.08 * $salario;
@@ -366,20 +315,31 @@ error_reporting(E_ERROR | E_PARSE);*/
 
       <div class="card">
         <p class="name text-align"><strong><?php print $funcionarios['nome']; ?></strong></p>
-        <p class="card-text">Salary: R$ <?php print number_format($salario, 2, ',', '.');
-        ?> </p>
-        <p class="card-text">Overtime: R$ <?php print number_format($horasExtras, 2, ',', '.'); ?> </p>
+        <p class="card-text"><span class="label">Salary:</span> <span class="value">
+            R$ <?php print number_format($salario, 2, ',', '.');
+            ?>
+          </span> </p>
+        <span>
+          <p class="card-text"><span class="label">Overtime:</span> <span class="value">R$
+              <?php print number_format($horasExtras, 2, ',', '.'); ?> </span></p>
+        </span>
 
-        <p class="card-text">FGTS: R$ <?php print number_format($fgts, 2, ',', '.'); ?></p>
+        <p class="card-text"><span class="label">FGTS:</span> <span class="value">R$
+            <?php print number_format($fgts, 2, ',', '.'); ?></span></p>
 
 
 
 
-        <p class="card-text">INSS: R$ <?php print number_format($prevSocial, 2, ',', '.'); ?></p>
-        <p class="card-text">Vacation (yearly): R$ <?php print number_format($ferias, 2, ',', '.'); ?></p>
-        <p class="card-text">13° salary (yearly): R$ <?php print number_format($decimoTerceiroSalario, 2, ',', '.'); ?>
+        <p class="card-text"><span class="label">INSS:</span> <span class="value">R$
+            <?php print number_format($prevSocial, 2, ',', '.'); ?></span></p>
+        <p class="card-text"><span class="label">Vacation (yearly):</span><span class="value"> R$
+            <?php print number_format($ferias, 2, ',', '.'); ?></span></p>
+        <p class="card-text"><span class="label">13° salary (yearly):</span> <span class="value">R$
+            <?php print number_format($decimoTerceiroSalario, 2, ',', '.'); ?></span>
         </p>
-        <p class="card-text"><strong>Custo Total: R$ <?php print number_format($custoTotal, 2, ',', '.'); ?></strong>
+        <p class="card-text"> <span class="alinha-texto">
+            <strong>Total Cost: R$ <?php print number_format($custoTotal, 2, ',', '.'); ?></strong>
+          </span>
         </p>
 
         <form method="POST" class="centralizado" action="remover-funcionario.php">
@@ -401,6 +361,3 @@ error_reporting(E_ERROR | E_PARSE);*/
 </body>
 
 </html>
-
-
-
